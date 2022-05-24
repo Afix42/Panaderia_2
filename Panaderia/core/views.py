@@ -1,5 +1,11 @@
 from django.shortcuts import render
 
+# Create your views here.
 def inicio(request):
     return render(request,'core/Menu.html')
-# Create your views here.
+
+def registro(request):
+    return render(request,'core/formularioRegistro.html')
+
+def login(request):
+    return render(request, 'core/FormularioLogin.html')
