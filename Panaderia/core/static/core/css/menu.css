@@ -15,21 +15,23 @@ footer {
 .card {
     margin-right: 10px;
     position: relative;
+    margin: 3px;
 }
 .card img {
-    width: 300px;
-    height: 300px;
-    object-fit: none;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    min-height: 300px;
+    max-height: 350px;
 }
 
 .cuerpo-card {
-    font-family: Arial, Helvetica, sans-serif;
-    position: absolute;
-    bottom: 0;
-    padding: 10px;
     background-color: rgba(0, 0, 0, 0.4);
     color: #fff;
 }
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
 
 
 .descripcion-tienda {
@@ -61,6 +63,7 @@ footer {
     font-weight: bold;
     color: #55524f;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
 }
 
 .col-lg-1 {
@@ -76,3 +79,4 @@ footer {
     width: 350px;
     
 }
+

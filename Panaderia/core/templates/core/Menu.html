@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bell Sabores</title>
-  <link rel="icon" href="">
+  <link rel="icon" href="{% static 'core/image/logo_Panaderia.png' %}">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -79,44 +79,47 @@
       </div>
 
       <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-lg-2 col-sm">
-              <div class="card">
-                  <img src="imagenes/menu1.png" alt="Berlín">
-                  <div class="cuerpo-card">
-                      <h2>Berlín</h2>
-                      <p>Delicioso berlin extremadamente suave relleno con una exquisita crema pastelera muy cremosa.</p>
-                  </div>
-              </div>
-        </div>
-        <div class="col-lg-2 col-sm">
-            <div class="card">
-                <img src="imagenes/menu2.png" alt="Empanada">
-                <div class="cuerpo-card">
-                    <h2>Empanada de Mechada</h2>
-                    <p>Fina empanada de masa de hojaldre recien salida del horno con un rico relleno de queso con carne mechada marinada en sus jugos.</p>
-                </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 col-sm-6">
+          <div class="card cuerpo-card">
+            <img src="{% static 'core/image/menu1.png' %}" alt="Avatar" style="width:100%">
+            <div class="container">
+              <h4><b>Berlín</b></h4>
+              <p>Delicioso berlin extremadamente suave relleno con una exquisita crema pastelera muy cremosa.</p>
             </div>
+          </div>
         </div>
-        <div class="col-lg-2 col-sm">
-              <div class="card">
-                  <img src="imagenes/menu3.png" alt="Pan Amasado">
-                  <div class="cuerpo-card">
-                      <h2>Pan Amasado</h2>
-                      <p>Exquisito pan amasado calentito de la antigua receta de la abuela, suave textura en su interior.</p>
-                  </div>
-              </div>
+        <div class="col-md-5 col-sm-6">
+          <div class="card cuerpo-card">
+            <img src="{% static 'core/image/menu2.png' %}" alt="Avatar" style="width:100%">
+            <div class="container">
+              <h4><b>Empanada de mechada</b></h4>
+              <p>Fina empanada de masa de hojaldre recien salida del horno con un rico relleno de queso con carne mechada marinada en sus jugos.</p>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-2 col-sm">
-              <div class="card">
-                  <img src="imagenes/menu4.png" alt="Marraqueta">
-                  <div class="cuerpo-card">
-                      <h2>Marraqueta</h2>
-                      <p>Rico pan de marraqueta recien salido del horno con una crujiente corteza y un esponjoso y suave interior.</p>
-                  </div>
-              </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5 col-sm-6">
+          <div class="card cuerpo-card">
+            <img src="{% static 'core/image/menu3.png' %}" alt="Avatar" style="width:100%">
+            <div class="container">
+              <h4><b>Pan amasado</b></h4>
+              <p>Exquisto pan amasado calentito de la antigua receta de la abuela, suave textura en su interior.</p>
+            </div>
+          </div>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-5 col-sm-6">
+          <div class="card cuerpo-card">
+            <img src="{% static 'core/image/menu4.png' %}" alt="Avatar" style="width:100%">
+            <div class="container">
+              <h4><b>Marraqueta</b></h4>
+              <p>Rico pan de marraqueta recien salido del horno con una crujiente corteza y un esponjoso y suave interior.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <div class="row">
@@ -137,9 +140,9 @@
       <div class="col-md-4">
       <h2>Informacion de contacto:</h2>
       <h4><u>Siguenos en nuestras redes sociales!!!</u></h4>
-      <img src="Imagenes/Logo_Whatsapp.png"  width="60" height="60" alt="Logo_Whatsapp" >
-      <a href="https://www.instagram.com/" target="_blank"><img src="Imagenes/Logo_Instagram.png" width="60" height="60" alt="Logo_Instagram"></a>
-      <a href="https://www.facebook.com/" target="_blank"><img src="Imagenes/Logo_Facebook.png" width="60" height="60" alt="Logo_Facebook"></a>
+      <img src="{% static 'core/image/Logo_Whatsapp.png' %}"  width="60" height="60" alt="Logo_Whatsapp" >
+      <a href="https://www.instagram.com/" target="_blank"><img src="{% static 'core/image/Logo_Instagram.png' %}" width="60" height="60" alt="Logo_Instagram"></a>
+      <a href="https://www.facebook.com/" target="_blank"><img src="{% static 'core/image/Logo_Facebook.png' %}" width="60" height="60" alt="Logo_Facebook"></a>
     </div>
     <div class="col-md-4">
       <div class="row"><h3>Donde encontrarnos:</h3></div>
