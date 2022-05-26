@@ -18,22 +18,23 @@ def form_producto(request):
 def registro_usuario(request):
     nombre_u = request.POST['nombre']
     apellido_u = request.POST['apellido']
-    correo_u = request.POST['correo']
+    correo_u = request.POST['email']
     celular_u = request.POST['celular']
+    clave_u = request.POST['password']
 
     #insert
-    Usuario.objects.create(nombreUsuario = nombre_u, apellidoUsuario = apellido_u, correoUsuario = correo_u, celularUsuario = celular_u)
+    Usuario.objects.create(nombreUsuario = nombre_u, apellidoUsuario = apellido_u, correoUsuario = correo_u, celularUsuario = celular_u, clave = clave_u)
     
     messages.success(request,'Usuario Registrado')
 
     return redirect('login')
 
 def agregar_producto(request):
-    nombre_p = request.POST['nombre']
-    desc_p = request.POST['descripcion']
+    nombre_p = request.POST['nomProd']
+    desc_p = request.POST['descProd']
     img_foto = request.FILES['foto_m']
     total_p = request.POST['precio']
-    stock_p = request.POST['stock']
+    stock_p = request.POST['cantidad']
 
     #insert
     Producto.objects.create(nombreProducto = nombre_p,descripcionProducto = desc_p, foto = img_foto, total = total_p, stock =stock_p)
@@ -52,12 +53,3 @@ def login_usuario(request):
     except:
         messages.error(request,'Usuario y/o contraseña incorrectos')
         return redirect('login')
-
-
-
-
-
-
-
-
-
