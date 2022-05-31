@@ -49,6 +49,11 @@ def login_usuario(request):
 
     try:
         usuario = Usuario.objects.get(nombreUsuario = nombre,clave = password)
+        if usuario.rol.idRol == 1:
+            return
+        # aqui llamo a la vista del html si los datos son correctos utilizando return redirect('vista administradr')   
+        elif usuario.rol.idRol == 2:
+            return
         # aqui llamo a la vista del html si los datos son correctos utilizando return redirect('vista usuario')
     except:
         messages.error(request,'Usuario y/o contraseña incorrectos')
