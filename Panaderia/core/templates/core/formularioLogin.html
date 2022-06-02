@@ -38,15 +38,15 @@
         <div class="col-md-2 hidden-sm"></div>
         <div class="col-md-8 col-sm-12">
           <div class="container">
-            <form action="" class="form" id="form" autocomplete="off">
+            <form action="{% url 'login_usuario' %}" class="form" id="form" autocomplete="off" method="POST">
               <p class="form-titulo">Inicio de Sesion </p>
               <div class="form-input nombre">
-                <input type="text" id="nombre">
+                <input type="text" id="nombre" name="nombre">
                 <label for="nombre">Nombre</label>
                 <p class="mensajeError"></p>
               </div>
               <div class="form-input password">
-                <input type="password" id="password">
+                <input type="password" id="password" name="password">
                 <label for="password">Contraseña</label>
                 <p class="mensajeError"></p>
               <div>
