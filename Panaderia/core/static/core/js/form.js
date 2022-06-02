@@ -80,10 +80,3 @@ function enviarFormulario() {
 function esMayus (letra){
   return letra == letra.toUpperCase();
 };
-
-
-
-
-
-
-

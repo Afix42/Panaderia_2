@@ -5,7 +5,7 @@ from django.db import models
 
 class Rol(models.Model):
     idRol = models.AutoField(primary_key=True, verbose_name='id del rol')
-    nombreRol = models.CharField(max_length=20, verbose_name='Nombre del rol', blank=False, null=False)
+    nombreRol = models.CharField(max_length=20, verbose_name='Nombre del rol', blank=True, null=True)
 
     def __str__(self):
         return self.nombreRol
@@ -13,7 +13,7 @@ class Rol(models.Model):
 class Usuario(models.Model):
     idUsuario = models.AutoField(primary_key=True, verbose_name='id de usuario')
     nombreUsuario = models.CharField(max_length=25, verbose_name='Nombre del usuario', blank=False, null=False)
-    clave = models.CharField(max_length=30,verbose_name='Contraseña',blank=False,null=False)
+    clave = models.CharField(max_length=30,verbose_name='Contraseña',blank=True,null=True)
     apellidoUsuario = models.CharField(max_length=25, verbose_name='Apellido del usuario', blank=False, null=False)
     correoUsuario = models.CharField(max_length=25, verbose_name='Correo del usuario', blank=False, null=False)
     celularUsuario = models.IntegerField(verbose_name='Celular del usuario')

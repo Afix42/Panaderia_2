@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Producto, Usuario
+from .models import Producto, Usuario, Rol
 from django.contrib import messages
 
 # Create your views here.
@@ -23,7 +23,8 @@ def registro_usuario(request):
     clave_u = request.POST['password']
 
     #insert
-    Usuario.objects.create(nombreUsuario = nombre_u, apellidoUsuario = apellido_u, correoUsuario = correo_u, celularUsuario = celular_u, clave = clave_u)
+    roluser = Rol.objects.get(nombreRol= "Usuario")
+    Usuario.objects.create(nombreUsuario = nombre_u, apellidoUsuario = apellido_u, correoUsuario = correo_u, celularUsuario = celular_u, clave = clave_u, rol = roluser)
     
     messages.success(request,'Usuario Registrado')
 
