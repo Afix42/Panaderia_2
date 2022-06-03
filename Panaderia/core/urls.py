@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import inicio,registro,login,registro_usuario,form_producto,vista_usuario,login_usuario,vista_admin
+from .views import inicio,registro,login,registro_usuario,form_producto,vista_usuario,login_usuario,vista_admin,berlin
 
 urlpatterns = [
     path('', inicio, name='menu'),
@@ -11,4 +11,5 @@ urlpatterns = [
     path('login_usuario', login_usuario, name='login_usuario'),
     path('vista_usuario',vista_usuario, name='vista_usuario'),
     path('vista_admin',vista_admin,name='vista_admin'),
+    path('berlin',berlin,name='berlin'),
 ]

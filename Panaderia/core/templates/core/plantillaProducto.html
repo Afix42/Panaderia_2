@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Bell Sabores</title>
+  <link rel="icon" href="{% static 'core/image/logo_Panaderia.png' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="{% static 'core/css/CSS_plantilla.css' %}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'menu' %}">
+            <img src="{% static 'core/image/logo_Panaderia.png' %}" alt="logo_panaderia" width="40px" height="40px"> Bell Sabores
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="{% url 'vista_usuario' %}">Inicio</a>
+                    <a class="nav-link" href="listaProdUsuario.html">Productos</a>
+                    <a class="nav-link" href="carritoUsuario.html">Carrito</a>
+                    <a class="nav-link" href="{% url 'menu' %}">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid pt-3">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <img src="../Imagenes/menu1.png" alt="Cinque Terre" class="formaProd">
+            </div>
+            <div class="col-md-5">
+                <h1>Berlín</h1>
+                <h2>Precio:</h2>
+                <h2>1200$ C/U.</h2>
+                <h2>Descripción:</h2>
+                <p>Delicioso berlín extremadamente suave relleno con una exquisita crema pastelera muy cremosa.</p>
+                <h2>Características principales:</h2>
+                <p>1)Contiene leche.</p>
+                <p>2)Yemas de huevos.</p>
+                <p>3)Maicena.</p>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7 col-sm-3"></div>
+            <div class="col-md-3 col-sm-6 centrado"><button type="button" class="btn btn-success">Agregar al
+                    carrito</button></div>
+            <div class="col-md-2 col-sm-3"></div>
+        </div>
+    </div>
+
+    <div class="container-fluid pt-3 pb-2">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="row d-flex justify-content-center">
+                    <div class="card cardColor">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="comentario">Ingresa tu comentario aqui!</label>
+                                <textarea class="form-control" id="comentario" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-1">Enviar</button>
+                        </div>
+                        <div class="comment-widgets">
+                            <!-- Comment Row -->
+                            <div class="d-flex flex-row comment-row m-t-0">
+                                <div class="p-2"></div>
+                                <div class="comment-text w-100">
+                                    <h6 class="font-medium">Alfonso Maldoblado</h6> <span class="m-b-15 d-block">Berlín
+                                        muy bueno </span>
+                                    <div class="comment-footer"> <span class="text-muted float-right">14 de Abril,
+                                            2022</span> <button type="button"
+                                            class="btn btn-success btn-sm">&#128077;</button> <button type="button"
+                                            class="btn btn-danger btn-sm">&#128078;</button> </div>
+                                </div>
+                            </div> <!-- Comment Row -->
+                            <div class="d-flex flex-row comment-row">
+                                <div class="p-2"></div>
+                                <div class="comment-text active w-100">
+                                    <h6 class="font-medium">Miguel Herrera</h6> <span class="m-b-15 d-block">Buen
+                                        servicio &#129304;. </span>
+                                    <div class="comment-footer"> <span class="text-muted float-right">10 de Mayo,
+                                            2022</span> <button type="button"
+                                            class="btn btn-success btn-sm">&#128077;</button> <button type="button"
+                                            class="btn btn-danger btn-sm">&#128078;</button> </div>
+                                </div>
+                            </div> <!-- Comment Row -->
+                            <div class="d-flex flex-row comment-row">
+                                <div class="p-2"></div>
+                                <div class="comment-text w-100">
+                                    <h6 class="font-medium">Jonatán Díaz</h6> <span class="m-b-15 d-block">Diarrea toda
+                                        la noche &#129314; &#129314; &#129314; </span>
+                                    <div class="comment-footer"> <span class="text-muted float-right">1 de Agosto,
+                                            2022</span><button type="button"
+                                            class="btn btn-success btn-sm">&#128077;</button> <button type="button"
+                                            class="btn btn-danger btn-sm">&#128078;</button> </div>
+                                </div>
+                            </div>
+                        </div> <!-- Card -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+<footer>
+    <div class="container">
+        <div class="pie-pagina">
+            <h2>Informacion de contacto:</h2>
+            <h4><u>¡Siguenos en todas nuestras redes sociales!</u>.</h4>
+            <div class="row">
+                <div class="col-md-1">
+                    <a href="https://www.facebook.com/"><img src="../Imagenes/Logo_Facebook.png" width="75" height="75"
+                            class="img-circle" alt="Cinque Terre"></a>
+                </div>
+                <div class="col-md-1">
+                    <a href="https://www.twitter.com/"><img src="../Imagenes/Logo_Twitter.png" width="80" height="80"
+                            class="img-circle" alt="Cinque Terre"></a>
+                </div>
+                <div class="col-md-1">
+                    <img src="../Imagenes/Logo_Whatsapp.png" width="60" height="60" class="img-circle"
+                        alt="Cinque Terre">
+                </div>
+                <div class="col-md-1">
+                    <a href="https://www.instagram.com/"><img src="../Imagenes/Logo_Instagram.png" width="60"
+                            height="60" class="img-circle" alt="Cinque Terre"></a>
+                </div>
+                <div class="col-md-8">
+                </div>
+            </div>
+</footer>
+
+</html>

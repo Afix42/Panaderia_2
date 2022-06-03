@@ -21,6 +21,9 @@ def vista_usuario(request):
 def vista_admin(request):
     return render(request, 'core/MenuAdmin.html')
 
+def berlin(request):
+    return render(request,'core/plantillaProducto.html')
+
 def registro_usuario(request):
     nombre_u = request.POST['nombre']
     apellido_u = request.POST['apellido']

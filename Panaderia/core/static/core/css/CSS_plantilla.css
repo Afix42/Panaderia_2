@@ -1,0 +1,58 @@
+body {
+    background-color: #e69138 !important;
+}
+
+footer {
+    background-color: #e2b27e;
+}
+
+.pie-pagina {
+    color: #55524f;
+    font-size: 15px;
+}
+
+.img {
+    border: 5px solid #555;
+}
+
+.formaProd {
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: 5px solid #000;
+    border-radius: 10px;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.cardColor {
+    background-color: #55524f !important;
+    color: #fff;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+  
+.fa:hover {
+      color: #3e8e41;
+}
+  
+.fa-facebook {
+    color: #5d5d5d;
+}
+  
+.fa-instagram {
+    color: #5d5d5d;
+}
+  
