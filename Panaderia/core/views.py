@@ -15,6 +15,12 @@ def login(request):
 def form_producto(request):
     return render(request, 'core/FormularioAgregarProductos.html')
 
+def vista_usuario(request):
+    return render(request,'core/menuUsuario.html')
+
+def vista_admin(request):
+    return render(request, 'core/MenuAdmin.html')
+
 def registro_usuario(request):
     nombre_u = request.POST['nombre']
     apellido_u = request.POST['apellido']
@@ -47,15 +53,15 @@ def agregar_producto(request):
 def login_usuario(request):
     nombre = request.POST['nombre']
     password = request.POST['password']
-
+    
     try:
-        usuario = Usuario.objects.get(nombreUsuario = nombre,clave = password)
-        if usuario.rol.idRol == 1:
-            return
-        # aqui llamo a la vista del html si los datos son correctos utilizando return redirect('vista administradr')   
-        elif usuario.rol.idRol == 2:
-            return
-        # aqui llamo a la vista del html si los datos son correctos utilizando return redirect('vista usuario')
-    except:
-        messages.error(request,'Usuario y/o contraseña incorrectos')
+        us = Usuario.objects.get(nombreUsuario= nombre, clave = password)
+        rol2 = Rol.objects.get(nombreRol= "Administrador")
+        if us.rol ==  rol2:                  
+            return redirect('vista_admin')
+        else:
+            return redirect('vista_usuario')
+    except Usuario.DoesNotExist:
+        messages.error(request,'Usuario y/o Contraseña Incorrecta')
         return redirect('login')
+    

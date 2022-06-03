@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Productos</title>
-    <link rel="icon" href="">
+    <link rel="icon" href="{% static 'core/image/logo_Panaderia.png' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -40,31 +40,33 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="container">
-                    <form action="{% url 'agregar_producto' %}" class="form" id="form" autocomplete="off">
+                    <form action="{% url 'agregar_producto' %}" class="form" id="form" autocomplete="off" method="POST">
+                      {% csrf_token %}
                       <p class="form-titulo">Agrega un producto</p>
                       <div class="form-input nomProd">
-                        <input type="text" id="nomProd">
+                        <input type="text" id="nomProd" name="nomProd">
                         <label for="nomProd">Nombre del producto</label>
                         <p class="mensajeError"></p>
                       </div>
                       <div class="form-input descProd">
-                        <input type="text" id="descProd">
+                        <input type="text" id="descProd" name="descProd">
                         <label for="descProd">Descripcion</label>
                         <p class="mensajeError"></p>
                       </div>
                       <div class="form-input precio">
-                        <input type="number" id="precio">
+                        <input type="number" id="precio" name="precio">
                         <label for="precio">Precio</label>
                         <p class="mensajeError"></p>
                       </div>
                       <div class="form-input cantidad">
-                        <input type="number" id="cantidad">
+                        <input type="number" id="cantidad" name="cantidad">
                         <label for="cantidad">Cantidad</label>
                         <p class="mensajeError"></p>
                       </div>
                       <div class="form-group">
                         <label for="foto_m">Foto Producto: </label>
                         <input type="file" name="foto_m" id="foto_m">
+                        <p class="mensajeError"></p>
                       </div>
                       <div class="form-boton" >
                         <input type="submit" value="Enviar">
