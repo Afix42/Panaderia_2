@@ -43,6 +43,7 @@ def agregar_producto(request):
     total_p = request.POST['precio']
     stock_p = request.POST['cantidad']
 
+
     #insert
     Producto.objects.create(nombreProducto = nombre_p,descripcionProducto = desc_p, foto = img_foto, total = total_p, stock =stock_p)
 
