@@ -11,7 +11,7 @@ form.addEventListener("submit",e =>{
     let msjMostrar = "";
     let envioCorrecto = false;
 
-    if (nomProd.value.length < 4 || nomProd.value.length > 30) {
+    if (nomProd.value.length < 4 || nomProd.value.length > 70) {
         msjMostrar += "Nombre del producto muy corta, tiene que ser mayor a 4 letras*<br>";
         envioCorrecto = true;
     }
@@ -33,6 +33,7 @@ form.addEventListener("submit",e =>{
 
     if(envioCorrecto){
         msj.innerHTML = msjMostrar;
+        e.preventDefault();
     }
     else{
         msj.innerHTML = "Formulario Enviado";

@@ -12,7 +12,7 @@ def registro(request):
 def login(request):
     return render(request, 'core/FormularioLogin.html')
 
-def form_producto(request):
+def formulario_producto(request):
     return render(request, 'core/FormularioAgregarProductos.html')
 
 def vista_usuario(request):
@@ -39,20 +39,20 @@ def registro_usuario(request):
 
     return redirect('login')
 
-def agregar_producto(request):
+def form_producto(request):
     nombre_p = request.POST['nomProd']
     desc_p = request.POST['descProd']
-    img_foto = request.FILES['foto_m']
     total_p = request.POST['precio']
     stock_p = request.POST['cantidad']
+    img_foto = request.FILES['foto_m']
 
 
     #insert
-    Producto.objects.create(nombreProducto = nombre_p,descripcionProducto = desc_p, foto = img_foto, total = total_p, stock =stock_p)
+    Producto.objects.create(nombreProducto = nombre_p,descripcionProducto = desc_p, total = total_p, stock =stock_p,foto = img_foto)
 
     messages.success(request,'Producto agregado')
 
-    return redirect('form_producto')
+    return redirect('login')
 
 def login_usuario(request):
     nombre = request.POST['nombre']

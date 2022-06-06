@@ -24,8 +24,8 @@ function validacionForm() {
     mostrarMensajeError("nomProd", "Nombre del producto muy corta, tiene que ser mayor a 4 letras*");
     condicion = false;
   }
-  if (descProd.value.length < 20 || descProd.value.trim() == "") {
-    mostrarMensajeError("descProd", "Descripcion  muy corta, tiene que tener 20 letras minimo*");
+  if (descProd.value.length < 5 || descProd.value.trim() == "") {
+    mostrarMensajeError("descProd", "Descripcion  muy corta, tiene que tener 5 letras minimo*");
     condicion = false;
   }
   if (precio.value.length < 100 || precio.value.trim() == "") {
