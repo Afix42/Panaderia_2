@@ -23,6 +23,13 @@ def vista_admin(request):
 
 def berlin(request):
     return render(request,'core/plantillaProducto.html')
+    
+def lista_producto(request):
+    productos = Producto.objects.all()
+    data = {
+        'productos': productos
+    }
+    return render(request, 'core/ListaProductos.html', data)
 
 def registro_usuario(request):
     nombre_u = request.POST['nombre']
