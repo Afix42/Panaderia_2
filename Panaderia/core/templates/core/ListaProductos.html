@@ -15,6 +15,7 @@
     <link type="text/css" rel="stylesheet" href="{% static 'core/css/menu.css' %}">
 </head>
 <body>
+  {% load humanize %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'menu' %}">
@@ -42,9 +43,9 @@
         <img src="{{ p.foto.url }}" alt="Avatar" style="width:100%">
         {% endif %}
         <div class="container">
-          <h4><b>{{ p.nombreProducto }}</b></h4>
-          <p>{{ p.descripcionProducto }}</p>
-          <p>Precio: {{ p.total }}$</p>
+          <h4><b>{{ p.nombreProducto | title}}</b></h4>
+          <p>{{ p.descripcionProducto | capfirst}}</p>
+          <p>Precio: CLP${{ p.total | intcomma}}</p>
         </div>
       </div>
     </div>
