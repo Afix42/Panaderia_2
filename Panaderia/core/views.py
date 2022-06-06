@@ -23,6 +23,20 @@ def vista_admin(request):
 
 def berlin(request):
     return render(request,'core/plantillaProducto.html')
+
+def lista_productos_admin(request):
+    productos = Producto.objects.all()
+    data = {
+        'productos': productos
+    }
+    return render(request,'core/ListaProductosAdmin.html',data)
+
+def lista_productos_usuario(request):
+    productos = Producto.objects.all()
+    data = {
+        'productos': productos
+    }
+    return render(request,'core/ListaProductosUsuario.html',data)
     
 def lista_producto(request):
     productos = Producto.objects.all()

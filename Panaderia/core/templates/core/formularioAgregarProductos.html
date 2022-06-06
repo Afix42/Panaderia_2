@@ -16,25 +16,25 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'menu' %}">
-            <img src="{% static 'core/image/logo_Panaderia.png' %}" alt="logo_panaderia" width="40px" height="40px"> Bell Sabores
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="{% url 'menu' %}">Inicio</a>
-              <a class="nav-link" href="Lista_Productos.html">Productos</a>
-              <a class="nav-link" href="Carrito.html">Carrito</a>
-              <a class="nav-link" href="{% url 'login' %}">Inicio sesión</a>
-              <a class="nav-link" href="{% url 'registro' %}">Registrarse</a>
-            </div>
-          </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'vista_admin' %}">
+        <img src="{% static 'core/image/logo_Panaderia.png' %}" alt="logo_panaderia" width="40px" height="40px"> Bell Sabores
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="{% url 'vista_admin' %}">Inicio</a>
+          <a class="nav-link" href="listaProdUsuario.html">Productos</a>
+          <a class="nav-link" href="carritoUsuario.html">Carrito</a>
+          <a class="nav-link" href="{% url 'formulario_producto' %}">Añadir productos</a>
+          <a class="nav-link" href="{% url 'menu' %}">Cerrar sesión</a>
         </div>
-      </nav>
+      </div>
+    </div>
+  </nav>
     <div class="container-fluid">
         <div class=row>
             <div class="col-md-3"></div>
