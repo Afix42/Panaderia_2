@@ -52,7 +52,7 @@ def form_producto(request):
 
     messages.success(request,'Producto agregado')
 
-    return redirect('login')
+    return redirect('formulario_producto')
 
 def login_usuario(request):
     nombre = request.POST['nombre']

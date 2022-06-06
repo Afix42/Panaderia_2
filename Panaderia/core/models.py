@@ -51,7 +51,7 @@ class Venta(models.Model):
 class Producto(models.Model):
     idProducto = models.AutoField(primary_key=True, verbose_name='id del producto')
     nombreProducto = models.CharField(max_length=25, verbose_name='Nombre del producto', blank=False, null=False)
-    descripcionProducto = models.CharField(max_length=100, verbose_name='Descripcion del producto', blank=False, null=False)
+    descripcionProducto = models.CharField(max_length=300, verbose_name='Descripcion del producto', blank=False, null=False)
     foto = models.ImageField(upload_to="producto", null= True)
     total = models.IntegerField(verbose_name='Precio del producto')
     stock = models.IntegerField(verbose_name='Stock del producto')
