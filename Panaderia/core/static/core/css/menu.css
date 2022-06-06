@@ -16,17 +16,19 @@ footer {
     margin-right: 10px;
     position: relative;
     margin: 3px;
+
 }
 .card img {
     width: 100%;
     border-radius: 5px 5px 0 0;
-    min-height: 300px;
-    max-height: 350px;
+    max-height: 300px;
 }
 
 .cuerpo-card {
     background-color: rgba(0, 0, 0, 0.4);
     color: #fff;
+
+
 }
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -92,8 +94,14 @@ footer {
     border-radius: 50%;
 }
   
-.fa:hover {
+.fa-whatsapp:hover {
     color: #3e8e41;
+}
+.fa-facebook:hover {
+    color: #3b5998;
+}
+.fa-instagram:hover {
+    color: #C13584;
 }
   
 .fa-facebook {
@@ -107,4 +115,3 @@ footer {
     color: #5d5d5d
 }  
 
-  
