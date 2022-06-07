@@ -18,7 +18,7 @@ form.addEventListener("submit",e =>{
         envioCorrecto = true;
     }
 
-    if(apellido.value.length <4 || apellido.value.length > 20){
+    if(apellidos.value.length <4 || apellidos.value.length > 20){
         msjMostrar += "El apellido no tiene la longitud correcta<br>";
         envioCorrecto = true;
     }
@@ -28,7 +28,7 @@ form.addEventListener("submit",e =>{
         envioCorrecto = true;
     }
 
-    if(celular.value.length !=9 || isNaN(celular.value)){
+    if(celular.value.length !=9){
         msjMostrar += "El celular ingresado no es valido<br>";
         envioCorrecto = true;
     }
@@ -58,6 +58,7 @@ form.addEventListener("submit",e =>{
     
     if(envioCorrecto){
         msj.innerHTML = msjMostrar;
+        e.preventDefault();
     }
     else{
         msj.innerHTML = "Formulario Enviado";
