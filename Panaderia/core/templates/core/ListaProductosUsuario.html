@@ -1,74 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
+{% load static %}
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bell Sabores - Nuestros Productos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="{% static 'core/image/logo_Panaderia.png' %}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="{% static 'core/css/menu.css' %}">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bell Sabores - Nuestros Productos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="{% static 'core/image/logo_Panaderia.png' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="{% static 'core/css/menu.css' %}">
 </head>
+
 <body>
   {% load humanize %}
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'vista_usuario' %}">
-        <img src="{% static 'core/image/logo_Panaderia.png' %}" alt="logo_panaderia" width="40px" height="40px"> Bell Sabores
+        <img src="{% static 'core/image/logo_Panaderia.png' %}" alt="logo_panaderia" width="40px" height="40px"> Bell
+        Sabores
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="{% url 'vista_usuario' %}">Inicio</a>
-          <a class="nav-link" href="{% url 'lista_productos_usuario' %}">Productos</a>
+          <a class="nav-link" aria-current="page" href="{% url 'vista_usuario' %}">Inicio</a>
+          <a class="nav-link  active" href="{% url 'lista_productos_usuario' %}">Productos</a>
           <a class="nav-link" href="carritoUsuario.html">Carrito</a>
           <a class="nav-link" href="{% url 'menu' %}">Cerrar sesión</a>
         </div>
-      </div>  
-    </div>
-  </nav>
-<div class="container-fluid">
-    {% for p in productos %}
-    <div class="productos">
-    <div class="card cuerpo-card">
-        {% if p.foto %}
-        <img src="{{ p.foto.url }}" alt="Avatar" style="width:100%">
-        {% endif %}
-        <div class="container">
-          <h4><b>{{ p.nombreProducto | title}}</b></h4>
-          <p>{{ p.descripcionProducto | capfirst}}</p>
-          <p>Precio: CLP${{ p.total | intcomma}}</p>
-        </div>
       </div>
     </div>
-      {% endfor %}
-</div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4"><h2>Nuestros productos</h2></div>
+      <div class="col-md-4"></div>
+    </div>  
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-sm-12 col-md-8">
 
 
+      <div class="table-responsive">
+        <table class="table table-stripped table-hover">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Descripcion</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for p in productos %}
+            <tr>
+              <td>
+                {% if p.foto %}
+                <img src="{{ p.foto.url }}" alt="Avatar"
+                  style="height: 250px; width: 250px; border: 3px solid rgb(0, 0, 0);">
+                {% endif %}
+              </td>
+              <td><h4>{{p.idProducto}}</h4></td>
+              <td><h4>{{ p.nombreProducto | title}}</td>
+              <td><h4>{{ p.descripcionProducto | capfirst}}</td>
+              <td><h4>CLP${{ p.total | intcomma}}</h4></td>
+            </tr>
+
+            {% endfor %}
+          </tbody>
+
+
+        </table>
+
+
+      </div>
+
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  </div>
+
+  <script src="{% static 'core/js/valid.js' %}"></script>
 </body>
 <footer>
-    <div class="container-fluid pie-pagina pt-3 pb-3">
-      <div class="row">
-        <div class="col-md-4">
+  <div class="container-fluid pie-pagina pt-3 pb-3">
+    <div class="row">
+      <div class="col-md-4">
         <h2>Informacion de contacto:</h2>
         <h4><u>Siguenos en nuestras redes sociales!!!</u></h4>
-        <a href="#" class="fa fa-whatsapp"></a> 
-        <a href="#" class="fa fa-instagram"></a> 
+        <a href="#" class="fa fa-whatsapp"></a>
+        <a href="#" class="fa fa-instagram"></a>
         <a href="#" class="fa fa-facebook"></a>
       </div>
       <div class="col-md-4">
-        <div class="row"><h3>Donde encontrarnos:</h3></div>
+        <div class="row">
+          <h3>Donde encontrarnos:</h3>
+        </div>
         <div id="map"></div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script></div>
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+      </div>
       <div class="col-md-4"></div>
     </div>
   </div>
-  </footer>
+</footer>
+
 </html>

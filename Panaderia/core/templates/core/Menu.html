@@ -26,9 +26,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="Menu.html">Inicio</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'menu' %}">Inicio</a>
           <a class="nav-link" href="{% url 'lista_producto' %}">Productos</a>
-          <a class="nav-link" href="Carrito.html">Carrito</a>
           <a class="nav-link" href="{% url 'login' %}">Inicio sesión</a>
           <a class="nav-link" href="{% url 'registro' %}">Registrarse</a>
         </div>

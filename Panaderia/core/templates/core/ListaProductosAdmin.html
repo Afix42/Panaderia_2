@@ -41,24 +41,54 @@
   </nav>
   <div class="container-fluid">
     <div class="row">
-      {% for p in productos %}
-      <div class="productos">
-        <div class="card cuerpo-card">
-          {% if p.foto %}
-          <img src="{{ p.foto.url }}" alt="Avatar">
-          {% endif %}
-          <div class="container">
-            <h4><b>{{ p.nombreProducto | title}}</b></h4>
-            <p>{{ p.descripcionProducto | capfirst}}</p>
-            <p>Precio: CLP${{ p.total | intcomma}}</p>
-            <a href="edicion_prod/{{p.idProducto}}" type="button" class="btn-lg btn-primary">Modificar Producto</a>
-            <a href="eliminacion_prod/{{p.idProducto}}" type="button" class="btn-lg btn-danger">Eliminar Producto</a>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4"><h2>Nuestros productos</h2></div>
+      <div class="col-md-4"></div>
+    </div>  
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-sm-12 col-md-8">
 
+
+
+          <table class="table table-stripped table-hover table-responsive">
+            <thead>
+              <tr>
+                <th>Imagen</th>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Descripcion</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for p in productos %}
+              <tr>
+                <td>
+                  {% if p.foto %}
+                  <img src="{{ p.foto.url }}" alt="Avatar" style="height: 250px; width: 250px; border: 3px solid rgb(0, 0, 0);">
+                  {% endif %}
+                </td>
+                <td><h4>{{p.idProducto}}</h4></td>
+                <td><h4>{{ p.nombreProducto | title}}</h4></td>
+                <td><h4>{{ p.descripcionProducto | capfirst}}</h4></td>
+                <td><h4>CLP${{ p.total | intcomma}}</h4></td>
+                <td><a href="edicion_prod/{{p.idProducto}}" type="button" class="btn-lg btn-primary">Modificar Producto</a> <a href="eliminacion_prod/{{p.idProducto}}" type="button" class="btn-lg btn-danger">Eliminar Producto</a></td>
+              </tr>
+
+              {% endfor %}
+            </tbody>
+
+
+          </table>
+
+
+
+
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
 
 
 

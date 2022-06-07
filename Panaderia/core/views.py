@@ -75,7 +75,7 @@ def lista_producto(request):
     data = {
         'productos': productos
     }
-    return render(request, 'core/ListaProductos.html', data)
+    return render(request, 'core/ListaProductosTABLA.html', data)
 
 def registro_usuario(request):
     nombre_u = request.POST['nombre']
