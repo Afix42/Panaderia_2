@@ -69,8 +69,8 @@
               </td>
               <td><h4>{{p.idProducto}}</h4></td>
               <td><h4>{{ p.nombreProducto | title}}</td>
-              <td><h4>{{ p.descripcionProducto | capfirst}}</td>
               <td><h4>CLP${{ p.total | intcomma}}</h4></td>
+              <td><h4>{{ p.descripcionProducto | capfirst}}</td>
             </tr>
 
             {% endfor %}

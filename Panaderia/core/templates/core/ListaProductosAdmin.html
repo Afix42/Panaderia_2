@@ -59,6 +59,8 @@
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Descripcion</th>
+                <th>Stock</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -71,8 +73,9 @@
                 </td>
                 <td><h4>{{p.idProducto}}</h4></td>
                 <td><h4>{{ p.nombreProducto | title}}</h4></td>
-                <td><h4>{{ p.descripcionProducto | capfirst}}</h4></td>
                 <td><h4>CLP${{ p.total | intcomma}}</h4></td>
+                <td><h4>{{ p.descripcionProducto | capfirst}}</h4></td>
+                <td><h4>{{p.stock}}</h4></td>
                 <td><a href="edicion_prod/{{p.idProducto}}" type="button" class="btn-lg btn-primary">Modificar Producto</a> <a href="eliminacion_prod/{{p.idProducto}}" type="button" class="btn-lg btn-danger">Eliminar Producto</a></td>
               </tr>
 
