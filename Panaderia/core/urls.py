@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import inicio,registro,login,registro_usuario,form_producto,vista_usuario,login_usuario,vista_admin,berlin,formulario_producto,lista_producto,lista_productos_admin,lista_productos_usuario
+from .views import inicio,registro,login,registro_usuario,form_producto,vista_usuario,login_usuario,vista_admin,berlin,formulario_producto,lista_producto,lista_productos_admin,lista_productos_usuario, edicion_prod, editar_producto
 
 urlpatterns = [
     path('', inicio, name='menu'),
@@ -16,4 +16,6 @@ urlpatterns = [
     path('lista_producto',lista_producto,name='lista_producto'),
     path('lista_productos_admin',lista_productos_admin,name='lista_productos_admin'),
     path('lista_productos_usuario',lista_productos_usuario,name='lista_productos_usuario'),
+    path('edicion_prod/<idProducto>', edicion_prod, name='edicion_prod'),
+    path('editar_producto', editar_producto, name='editar_producto')
 ]
