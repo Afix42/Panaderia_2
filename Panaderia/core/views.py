@@ -15,6 +15,38 @@ def login(request):
 def formulario_producto(request):
     return render(request, 'core/FormularioAgregarProductos.html')
 
+def edicion_prod(request, idProducto):
+    producto = Producto.objects.get(idProducto = idProducto)
+    return render(request, 'core/formularioEditarProd.html', {"producto": producto})
+
+def editar_producto(request):
+    idProducto = request.POST['idProd']
+    nombre_p = request.POST['nomProd']
+    desc_p = request.POST['descProd']
+    total_p = request.POST['precio']
+    stock_p = request.POST['cantidad']
+    img_foto = request.FILES['foto_m']
+
+    producto=Producto.objects.get(idProducto=idProducto)
+    producto.nombreProducto = nombre_p
+    producto.descripcionProducto = desc_p
+    producto.total = total_p
+    producto.stock = stock_p
+    producto.foto = img_foto 
+    print("hola2")
+    producto.save()
+    print("hola")
+    messages.success(request, 'Producto modificado con éxito')
+
+    return redirect('lista_productos_admin')
+
+def eliminacion_prod(request, idProducto):
+    producto = Producto.objects.get(idProducto = idProducto)
+    producto.delete()
+
+    return redirect('lista_productos_admin')
+
+
 def vista_usuario(request):
     return render(request,'core/menuUsuario.html')
 
