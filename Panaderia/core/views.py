@@ -86,12 +86,21 @@ def registro_usuario(request):
 
     #insert
     roluser = Rol.objects.get(nombreRol= "Usuario")
-    Usuario.objects.create(nombreUsuario = nombre_u, apellidoUsuario = apellido_u, correoUsuario = correo_u, celularUsuario = celular_u, clave = clave_u, rol = roluser)
+
+    try:
+        x = Usuario.objects.get(nombreUsuario = nombre_u)
+        messages.error(request,'Usuario ya Registrado')
+        return redirect('registro')
+
+    except Usuario.DoesNotExist:
+        Usuario.objects.create(nombreUsuario = nombre_u, apellidoUsuario = apellido_u, correoUsuario = correo_u, celularUsuario = celular_u, clave = clave_u, rol = roluser)
     
-    messages.success(request,'Usuario Registrado')
+        messages.success(request,'Usuario Registrado')
 
-    return redirect('login')
+        return redirect('login')
 
+
+    
 def form_producto(request):
     nombre_p = request.POST['nomProd']
     desc_p = request.POST['descProd']

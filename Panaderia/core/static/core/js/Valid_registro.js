@@ -53,7 +53,7 @@ form.addEventListener("submit",e =>{
         msjMostrar += "Acepte los terminos y las condiciones<br>";
         condicion = false;
     } else {
-        msjMostrar += "terminos<br>";
+        msjMostrar += "";
     }
     
     if(envioCorrecto){
