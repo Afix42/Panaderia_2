@@ -40,33 +40,33 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="container">
-                    <form action="{% url 'form_producto' %}" class="form" id="form" autocomplete="off" method="POST" enctype= "multipart/form-data">
+                    <form action="{% url 'form_producto' %}" class="form" id="form" autocomplete="off" method="POST" enctype="multipart/form-data">
                       {% csrf_token %}
                       <p class="form-titulo">Agrega un producto</p>
                       <div class="form-input nomProd">
-                        <input type="text" id="nomProd" name="nomProd">
+                        <input type="text" id="nomProd" name="nomProd" required>
                         <label for="nomProd">Nombre del producto</label>
                         <p class="mensajeError"></p>
                       </div>
                       <div class="form-input descProd">
-                        <input type="text" id="descProd" name="descProd">
+                        <input type="text" id="descProd" name="descProd" required>
                         <label for="descProd">Descripcion</label>
                         <p class="mensajeError"></p>
                       </div>
                       <div class="form-input precio">
-                        <input type="number" id="precio" name="precio">
+                        <input type="number" id="precio" name="precio" required>
                         <label for="precio">Precio</label>
                         <p class="mensajeError"></p>
                       </div>
                       <div class="form-input cantidad">
-                        <input type="number" id="cantidad" name="cantidad">
+                        <input type="number" id="cantidad" name="cantidad" required>
                         <label for="cantidad">Cantidad</label>
                         <p class="mensajeError"></p>
+                        <p class="mensajeError" id="mensajeError"></p>
                       </div>
                       <div class="form-group">
                         <label for="foto_m">Foto Producto: </label>
-                        <input type="file" name="foto_m" id="foto_m">
-                        <p class="mensajeError" id="mensajeError"></p>
+                        <input type="file" name="foto_m" id="foto_m" required>
                       </div>
                       <div class="form-boton" >
                         <input type="submit" value="Enviar">

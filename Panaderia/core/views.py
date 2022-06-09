@@ -97,11 +97,13 @@ def form_producto(request):
     desc_p = request.POST['descProd']
     total_p = request.POST['precio']
     stock_p = request.POST['cantidad']
-    img_foto = request.FILES['foto_m']
-
-
-    #insert
-    Producto.objects.create(nombreProducto = nombre_p,descripcionProducto = desc_p, total = total_p, stock =stock_p,foto = img_foto)
+    #Para que el formulario se mande aun que la foto no este
+    if request.FILES.get('foto_m'):
+        img_foto = request.FILES['foto_m']
+        Producto.objects.create(nombreProducto = nombre_p,descripcionProducto = desc_p, total = total_p, stock =stock_p,foto = img_foto)
+    
+    else:
+        Producto.objects.create(nombreProducto = nombre_p,descripcionProducto = desc_p, total = total_p, stock =stock_p)
 
     messages.success(request,'Producto agregado')
 

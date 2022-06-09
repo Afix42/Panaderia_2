@@ -58,11 +58,12 @@ form.addEventListener("submit",e =>{
     
     if(envioCorrecto){
         msj.innerHTML = msjMostrar;
+        e.preventDefault();
     }
     else{
         msj.innerHTML = "Formulario Enviado";
     }
-    return condicion;
+    //return condicion;
 });
 
 function esMayus (letra){
