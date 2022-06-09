@@ -74,6 +74,8 @@
                       </div>
                       <div class="form-group">
                         <label for="foto_m">Foto Producto: </label>
+                        <img src="{{ producto.foto.url }}" alt="Sin foto" style="width:100%;max-width: 250px;">
+                        <br>
                         <input type="file" name="foto_m" id="foto_m" value="{{producto.foto}}">
                         <p class="mensajeError" id="mensajeError"></p>
                       </div>

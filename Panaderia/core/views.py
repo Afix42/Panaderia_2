@@ -25,14 +25,18 @@ def editar_producto(request):
     desc_p = request.POST['descProd']
     total_p = request.POST['precio']
     stock_p = request.POST['cantidad']
-    img_foto = request.FILES['foto_m']
+
+    if(request.FILES.get('foto_m')):
+        img_foto = request.FILES['foto_m']
+        producto.foto = img_foto
+    
 
     producto=Producto.objects.get(idProducto=idProducto)
     producto.nombreProducto = nombre_p
     producto.descripcionProducto = desc_p
     producto.total = total_p
     producto.stock = stock_p
-    producto.foto = img_foto 
+     
     print("hola2")
     producto.save()
     print("hola")
