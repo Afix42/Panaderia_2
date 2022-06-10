@@ -42,48 +42,70 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4"></div>
-      <div class="col-md-4"><h2>Nuestros productos</h2></div>
+      <div class="col-md-4">
+        <h2>Nuestros productos</h2>
+      </div>
       <div class="col-md-4"></div>
-    </div>  
+    </div>
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-sm-12 col-md-8">
+        {%if messages%}
+        {%for message in messages%}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong class="text-dark">{{message}}</strong>
+        </div>
+        {% endfor %}
+        {%endif%}
 
 
+        <table class="table table-stripped table-hover table-responsive">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Descripcion</th>
+              <th>Stock</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for p in productos %}
+            <tr>
+              <td>
+                {% if p.foto %}
+                <img src="{{ p.foto.url }}" alt="Avatar"
+                  style="height: 250px; width: 250px; border: 3px solid rgb(0, 0, 0);">
+                {% endif %}
+              </td>
+              <td>
+                <h4>{{p.idProducto}}</h4>
+              </td>
+              <td>
+                <h4>{{ p.nombreProducto | title}}</h4>
+              </td>
+              <td>
+                <h4>CLP${{ p.total | intcomma}}</h4>
+              </td>
+              <td>
+                <h4>{{ p.descripcionProducto | capfirst}}</h4>
+              </td>
+              <td>
+                <h4>{{p.stock}}</h4>
+              </td>
+              <td><a href="edicion_prod/{{p.idProducto}}" type="button" class="btn-lg btn-primary">Modificar
+                  Producto</a> <a href="eliminacion_prod/{{p.idProducto}}" type="button"
+                  class="btn-lg btn-danger btnEliminacion">Eliminar Producto</a></td>
+            </tr>
 
-          <table class="table table-stripped table-hover table-responsive">
-            <thead>
-              <tr>
-                <th>Imagen</th>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Descripcion</th>
-                <th>Stock</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for p in productos %}
-              <tr>
-                <td>
-                  {% if p.foto %}
-                  <img src="{{ p.foto.url }}" alt="Avatar" style="height: 250px; width: 250px; border: 3px solid rgb(0, 0, 0);">
-                  {% endif %}
-                </td>
-                <td><h4>{{p.idProducto}}</h4></td>
-                <td><h4>{{ p.nombreProducto | title}}</h4></td>
-                <td><h4>CLP${{ p.total | intcomma}}</h4></td>
-                <td><h4>{{ p.descripcionProducto | capfirst}}</h4></td>
-                <td><h4>{{p.stock}}</h4></td>
-                <td><a href="edicion_prod/{{p.idProducto}}" type="button" class="btn-lg btn-primary">Modificar Producto</a> <a href="eliminacion_prod/{{p.idProducto}}" type="button" class="btn-lg btn-danger">Eliminar Producto</a></td>
-              </tr>
-
-              {% endfor %}
-            </tbody>
+            {% endfor %}
+          </tbody>
 
 
-          </table>
+        </table>
 
 
 
@@ -103,7 +125,7 @@
 
 
 
-    <script src="{% static 'core/js/valid.js' %}"></script>
+  <script src="{% static 'core/js/valid.js' %}"></script>
 </body>
 <footer>
   <div class="container-fluid pie-pagina pt-3 pb-3">

@@ -40,6 +40,14 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="container">
+                  {%if messages%}
+                  {%for message in messages%}
+                  <div class="alert alert-dismissible alert-danger">
+                     <button type="button"class="close"data-dismiss="alert">&times;</button>
+                     <strong class="text-dark">{{message}}</strong>
+                  </div>
+                  {% endfor %}
+                  {%endif%}
                     <form action="{% url 'form_producto' %}" class="form" id="form" autocomplete="off" method="POST" enctype="multipart/form-data">
                       {% csrf_token %}
                       <p class="form-titulo">Agrega un producto</p>

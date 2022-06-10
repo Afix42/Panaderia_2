@@ -26,12 +26,14 @@ def editar_producto(request):
     total_p = request.POST['precio']
     stock_p = request.POST['cantidad']
 
+
+    producto=Producto.objects.get(idProducto=idProducto)
     if(request.FILES.get('foto_m')):
         img_foto = request.FILES['foto_m']
         producto.foto = img_foto
     
 
-    producto=Producto.objects.get(idProducto=idProducto)
+
     producto.nombreProducto = nombre_p
     producto.descripcionProducto = desc_p
     producto.total = total_p
@@ -47,6 +49,7 @@ def editar_producto(request):
 def eliminacion_prod(request, idProducto):
     producto = Producto.objects.get(idProducto = idProducto)
     producto.delete()
+    messages.success(request, 'Producto eliminado con éxito')
 
     return redirect('lista_productos_admin')
 
@@ -93,13 +96,13 @@ def registro_usuario(request):
 
     try:
         x = Usuario.objects.get(nombreUsuario = nombre_u)
-        messages.error(request,'Usuario ya Registrado')
+        messages.error(request,'Error: Usuario ya existe')
         return redirect('registro')
 
     except Usuario.DoesNotExist:
         Usuario.objects.create(nombreUsuario = nombre_u, apellidoUsuario = apellido_u, correoUsuario = correo_u, celularUsuario = celular_u, clave = clave_u, rol = roluser)
     
-        messages.success(request,'Usuario Registrado')
+        messages.success(request,'Usuario registrado con éxito')
 
         return redirect('login')
 
