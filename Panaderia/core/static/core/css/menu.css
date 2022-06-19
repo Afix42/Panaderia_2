@@ -96,6 +96,15 @@ footer {
     color: #3e8e41;
 }
   
+.fa-facebook:hover {
+    color: #3b5998;
+}
+
+.fa-instagram:hover {
+    color: #C13584;
+}
+
+
 .fa-facebook {
     color: #5d5d5d;
   }

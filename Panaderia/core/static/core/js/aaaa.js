@@ -38,5 +38,4 @@ form.addEventListener("submit",e =>{
     else{
         msj.innerHTML = "Formulario Enviado";
     }
-    return condicion;
 });

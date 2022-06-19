@@ -40,10 +40,11 @@ class Direccion(models.Model):
 
 class Venta(models.Model):
     idVenta = models.AutoField(primary_key=True, verbose_name='id de la venta')
-    fVenta = models.IntegerField(verbose_name='f venta')
+    fVenta = models.DateField(auto_now=True ,verbose_name='fecha venta')
     total = models.IntegerField(verbose_name='Total de la venta')
     usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE)
     direccion = models.ForeignKey(Direccion,on_delete=models.CASCADE)
+    status = models.IntegerField(verbose_name='Estatus de la venta')
 
     def __str__(self):
         return self.idVenta

@@ -53,7 +53,7 @@ form.addEventListener("submit",e =>{
         msjMostrar += "Acepte los terminos y las condiciones<br>";
         condicion = false;
     } else {
-        msjMostrar += "terminos<br>";
+        msjMostrar += "";
     }
     
     if(envioCorrecto){
@@ -63,7 +63,7 @@ form.addEventListener("submit",e =>{
     else{
         msj.innerHTML = "Formulario Enviado";
     }
-    return condicion;
+    //return condicion;
 });
 
 function esMayus (letra){

@@ -25,14 +25,20 @@ def editar_producto(request):
     desc_p = request.POST['descProd']
     total_p = request.POST['precio']
     stock_p = request.POST['cantidad']
-    img_foto = request.FILES['foto_m']
+
 
     producto=Producto.objects.get(idProducto=idProducto)
+    if(request.FILES.get('foto_m')):
+        img_foto = request.FILES['foto_m']
+        producto.foto = img_foto
+    
+
+
     producto.nombreProducto = nombre_p
     producto.descripcionProducto = desc_p
     producto.total = total_p
     producto.stock = stock_p
-    producto.foto = img_foto 
+     
     print("hola2")
     producto.save()
     print("hola")
@@ -43,6 +49,7 @@ def editar_producto(request):
 def eliminacion_prod(request, idProducto):
     producto = Producto.objects.get(idProducto = idProducto)
     producto.delete()
+    messages.success(request, 'Producto eliminado con éxito')
 
     return redirect('lista_productos_admin')
 
@@ -75,7 +82,7 @@ def lista_producto(request):
     data = {
         'productos': productos
     }
-    return render(request, 'core/ListaProductos.html', data)
+    return render(request, 'core/ListaProductosTABLA.html', data)
 
 def registro_usuario(request):
     nombre_u = request.POST['nombre']
@@ -86,22 +93,33 @@ def registro_usuario(request):
 
     #insert
     roluser = Rol.objects.get(nombreRol= "Usuario")
-    Usuario.objects.create(nombreUsuario = nombre_u, apellidoUsuario = apellido_u, correoUsuario = correo_u, celularUsuario = celular_u, clave = clave_u, rol = roluser)
+
+    try:
+        x = Usuario.objects.get(nombreUsuario = nombre_u)
+        messages.error(request,'Error: Usuario ya existe')
+        return redirect('registro')
+
+    except Usuario.DoesNotExist:
+        Usuario.objects.create(nombreUsuario = nombre_u, apellidoUsuario = apellido_u, correoUsuario = correo_u, celularUsuario = celular_u, clave = clave_u, rol = roluser)
     
-    messages.success(request,'Usuario Registrado')
+        messages.success(request,'Usuario registrado con éxito')
 
-    return redirect('login')
+        return redirect('login')
 
+
+    
 def form_producto(request):
     nombre_p = request.POST['nomProd']
     desc_p = request.POST['descProd']
     total_p = request.POST['precio']
     stock_p = request.POST['cantidad']
-    img_foto = request.FILES['foto_m']
-
-
-    #insert
-    Producto.objects.create(nombreProducto = nombre_p,descripcionProducto = desc_p, total = total_p, stock =stock_p,foto = img_foto)
+    #Para que el formulario se mande aun que la foto no este
+    if request.FILES.get('foto_m'):
+        img_foto = request.FILES['foto_m']
+        Producto.objects.create(nombreProducto = nombre_p,descripcionProducto = desc_p, total = total_p, stock =stock_p,foto = img_foto)
+    
+    else:
+        Producto.objects.create(nombreProducto = nombre_p,descripcionProducto = desc_p, total = total_p, stock =stock_p)
 
     messages.success(request,'Producto agregado')
 
