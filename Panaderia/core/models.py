@@ -44,7 +44,7 @@ class Venta(models.Model):
     total = models.IntegerField(verbose_name='Total de la venta')
     usuario = models.ForeignKey(Usuario,on_delete=models.CASCADE)
     direccion = models.ForeignKey(Direccion,on_delete=models.CASCADE)
-    status = models.IntegerField(verbose_name='Estatus de la venta')
+    status = models.IntegerField(verbose_name='Estatus de la venta', null=True, blank=True)
 
     def __str__(self):
         return self.idVenta

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'rest_framework',
     'api_rest',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +74,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Panaderia.wsgi.application'
 
+REST_FRAMEWORK={
+    'DEFAULT_AUTHENTICATIN_CLASSES':[
+        'rest_framework.authentication.TokenAuhentication',
+    ],
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases

@@ -4,7 +4,7 @@ from core.models import Producto, Usuario, Rol
 class ProductoSerializers(serializers.ModelSerializer):
     class Meta:
         model = Producto
-        fields = ['idProducto','nombreProducto','descripcionProducto', 'foto', 'total']
+        fields = ['idProducto','nombreProducto','descripcionProducto', 'total']
 
 
 class UsuarioSerializers(serializers.ModelSerializer):
