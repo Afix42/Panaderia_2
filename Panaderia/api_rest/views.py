@@ -56,12 +56,16 @@ def listarProductos(request):
     serializer = ProductoSerializers(productos,many=True)
     return Response(serializer.data)
 
+
+
 @api_view(['GET'])
 @permission_classes((IsAuthenticated,))
 def listarUsuarios(request):
     usuarios = Usuario.objects.all()
     serializer = UsuarioSerializers(usuarios,many=True)
     return Response(serializer.data)
+
+
 
 @api_view(['GET'])
 @permission_classes((IsAuthenticated,))
@@ -70,3 +74,77 @@ def listarRol(request):
     serializer = RolSerializers(roles,many=True)
     return Response(serializer.data)
         
+
+
+@api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes((IsAuthenticated,))
+def EliminarModificarUsuario(request, id):
+    try:
+        u = Usuario.objects.get(idUsuario = id)
+    except Usuario.DoesNotExist:
+        return Response(status = status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        serializer = UsuarioSerializers(u)
+        return Response(serializer.data)
+
+
+    elif request.method == 'PUT':
+        data2 = JSONParser().parse(request)
+        serializer = UsuarioSerializers(u, data = data2)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
+
+    elif request.method == 'DELETE':
+        u.delete()
+        return Response(status = status.HTTP_204_NO_CONTENT)
+
+@api_view(['POST'])
+@permission_classes((IsAuthenticated,))
+def agregarUsuario(request):
+    data = JSONParser().parse(request)
+    serializer = UsuarioSerializers(data = data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data,status = status.HTTP_201_CREATED)
+    else:
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes((IsAuthenticated,))
+def EliminarModificarRol(request, id):
+    try:
+        r = Rol.objects.get(idRol = id)
+    except Rol.DoesNotExist:
+        return Response(status = status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        serializer = RolSerializers(r)
+        return Response(serializer.data)
+
+
+    elif request.method == 'PUT':
+        data2 = JSONParser().parse(request)
+        serializer = RolSerializers(r, data = data2)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
+
+    elif request.method == 'DELETE':
+        r.delete()
+        return Response(status = status.HTTP_204_NO_CONTENT)
+
+@api_view(['POST'])
+@permission_classes((IsAuthenticated,))
+def agregarRol(request):
+    data = JSONParser().parse(request)
+    serializer = RolSerializers(data = data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data,status = status.HTTP_201_CREATED)
+    else:
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
