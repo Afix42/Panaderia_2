@@ -10,7 +10,7 @@ class ProductoSerializers(serializers.ModelSerializer):
 class UsuarioSerializers(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ['idUsuario', 'nombreUsuario', 'apellidoUsuario', 'correoUsuario']
+        fields = ['idUsuario', 'nombreUsuario', 'apellidoUsuario', 'correoUsuario', 'celularUsuario', 'rol']
 
 
 class RolSerializers(serializers.ModelSerializer):

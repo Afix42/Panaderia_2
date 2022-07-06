@@ -15,6 +15,9 @@ def login(request):
 def formulario_producto(request):
     return render(request, 'core/FormularioAgregarProductos.html')
 
+def carrito(request):
+    return render(request, 'core/carrito.html')
+
 def edicion_prod(request, idProducto):
     producto = Producto.objects.get(idProducto = idProducto)
     return render(request, 'core/formularioEditarProd.html', {"producto": producto})
