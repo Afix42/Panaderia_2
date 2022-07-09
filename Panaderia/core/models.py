@@ -47,7 +47,7 @@ class Venta(models.Model):
     status = models.IntegerField(verbose_name='Estatus de la venta', null=True, blank=True)
 
     def __str__(self):
-        return self.idVenta
+        return str(self.idVenta)
 
 class Producto(models.Model):
     idProducto = models.AutoField(primary_key=True, verbose_name='id del producto')
@@ -76,6 +76,6 @@ class Detalle(models.Model):
     subtotal = models.IntegerField(verbose_name='Subtotal de la compra')
     producto = models.ForeignKey(Producto,on_delete=models.CASCADE)
     venta = models.ForeignKey(Venta,on_delete=models.CASCADE)
-
+    
     def __str__(self):
-        return self.subtotal
+        return str(self.subtotal)

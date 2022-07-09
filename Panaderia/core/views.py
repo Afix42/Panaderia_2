@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Producto, Usuario, Rol
+from .models import Producto, Usuario, Rol, Detalle
 from django.contrib import messages
 
 # Create your views here.
@@ -16,6 +16,15 @@ def formulario_producto(request):
     return render(request, 'core/FormularioAgregarProductos.html')
 
 def carrito(request):
+    detalles = Detalle.objects.all()
+    productos = Producto.objects.all()
+    data = {
+        'productos': productos,
+        'detalles': detalles
+    }
+        
+    return render(request, 'core/carrito.html', data)
+def carrito2(request):
     return render(request, 'core/carrito.html')
 
 def edicion_prod(request, idProducto):

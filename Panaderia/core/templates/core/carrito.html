@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
@@ -16,10 +17,12 @@
 </head>
 
 <body>
+    {% load humanize %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'menu' %}">
-                <img src="{% static 'core/image/logo_Panaderia.png' %}" alt="logo_panaderia" width="40px" height="40px">Bell Sabores
+            <a class="navbar-brand" href="{% url 'vista_usuario' %}">
+                <img src="{% static 'core/image/logo_Panaderia.png' %}" alt="logo_panaderia" width="40px"
+                    height="40px">Bell Sabores
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,15 +30,57 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="{% url 'menu' %}">Inicio</a>
-                    <a class="nav-link" href="{% url 'lista_producto' %}">Productos</a>
-                    <a class="nav-link" href="{% url 'login' %}">Inicio sesión</a>
-                    <a class="nav-link" href="{% url 'registro' %}">Registrarse</a>
+                    <a class="nav-link" aria-current="page" href="{% url 'vista_usuario' %}">Inicio</a>
+                    <a class="nav-link" href="{% url 'lista_productos_usuario' %}">Productos</a>
+                    <a class="nav-link active" href="{% url 'carrito' %}">Carrito</a>
+                    <a class="nav-link" href="{% url 'menu' %}">Cerrar sesión</a>
                 </div>
             </div>
         </div>
     </nav>
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h2>Intento d carrito sus ඞ</h2>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-sm-12 col-md-8">
+                <div class="table-responsive">
+                    <table class="table table-stripped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th colspan="3">Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for d in detalles %}
+                            <tr>
+                                <td>
+                                    <h4>{{d.producto}}</h4>
+                                </td>
+                                <td>
+                                    <h4>{{ d.cantidad }}</h4>
+                                </td>
+                                <td>
+                                    <h4>{{ d.subtotal }}</h4>
+                                </td>
+                                <td>
+                                    <h4>{{ d.venta }}</h4>
+                                </td>                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
     <script src="{% static 'core/js/valid.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
