@@ -152,3 +152,11 @@ def login_usuario(request):
         messages.error(request,'Usuario y/o Contraseña Incorrecta')
         return redirect('login')
     
+
+def elimCarrito(request, idDetalle):
+    producto = Detalle.objects.get(idDetalle = idDetalle)
+    producto.delete()
+    messages.success(request, 'Producto eliminado con éxito')
+
+    return redirect('carrito')
+
