@@ -76,7 +76,7 @@
                                     <h4>{{ d.cantidad }}</h4>
                                 </td>
                                 <td>
-                                    <h4>{{ d.subtotal }}</h4>
+                                    <h4>CLP${{ d.subtotal | intcomma}}</h4>
                                 </td>
                                 <td><a href="elimCarrito/{{d.idDetalle}}" type="button"
                                     class="btn-lg btn-danger btnEliminacion">Eliminar Producto</a></td>                             
