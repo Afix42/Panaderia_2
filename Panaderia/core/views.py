@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Producto, Usuario, Rol, Detalle
 from django.contrib import messages
-
+from django_user_agents.utils import get_user_agent
 # Create your views here.
 def inicio(request):
-    return render(request,'core/Menu.html')
+    return render(request,'core/menu2.html')
 
 def registro(request):
     return render(request,'core/formularioRegistro.html')
@@ -160,3 +160,11 @@ def elimCarrito(request, idDetalle):
 
     return redirect('carrito')
 
+def my_view(request):
+    user_agent = get_user_agent(request)
+    if user_agent.is_mobile:
+        return HttpResponse('User using mobile')
+    elif user_agent.is_pc:
+        vi=request.META['HTTP_USER_AGENT']
+        print(vi)
+        return HttpResponse('User using Computer')

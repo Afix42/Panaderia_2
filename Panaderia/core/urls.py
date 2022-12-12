@@ -3,7 +3,7 @@ from django.urls import path
 from .views import inicio,registro,login,registro_usuario,form_producto,vista_usuario,login_usuario,vista_admin,berlin,formulario_producto,lista_producto,lista_productos_admin,lista_productos_usuario, edicion_prod, editar_producto, eliminacion_prod,carrito,carrito2, elimCarrito
 
 urlpatterns = [
-    path('', inicio, name='menu'),
+    path('', inicio, name='menu2'),
     path('registro', registro, name='registro'),
     path('login', login, name='login'),
     path('registro_usuario', registro_usuario, name='registro_usuario'),
