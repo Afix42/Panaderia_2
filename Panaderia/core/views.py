@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Producto, Usuario, Rol, Detalle
 from django.contrib import messages
-from django_user_agents.utils import get_user_agent
+
 # Create your views here.
 def inicio(request):
-    return render(request,'core/menu2.html')
+    return render(request,'core/Menu.html')
 
 def registro(request):
     return render(request,'core/formularioRegistro.html')
@@ -161,6 +161,7 @@ def elimCarrito(request, idDetalle):
 
     return redirect('carrito')
 
+<<<<<<< HEAD
 def my_view(request):
     user_agent = get_user_agent(request)
     if user_agent.is_mobile:
@@ -172,3 +173,5 @@ def my_view(request):
 =======
     
 >>>>>>> parent of 8b19d14 (No se pudo.)
+=======
+>>>>>>> parent of e42e8ef (Pagina de belleduca terminada)
