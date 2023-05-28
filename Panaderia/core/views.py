@@ -151,6 +151,7 @@ def login_usuario(request):
     except Usuario.DoesNotExist:
         messages.error(request,'Usuario y/o Contraseña Incorrecta')
         return redirect('login')
+<<<<<<< HEAD
     
 
 def elimCarrito(request, idDetalle):
@@ -168,3 +169,6 @@ def my_view(request):
         vi=request.META['HTTP_USER_AGENT']
         print(vi)
         return HttpResponse('User using Computer')
+=======
+    
+>>>>>>> parent of 8b19d14 (No se pudo.)
